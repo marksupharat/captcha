@@ -122,6 +122,60 @@ describe('Captcha', function(){
     var capt = new Captcha(pat1,2,7,1);
     expect(capt.generate()).toEqual('7-One');
   });
-
-
+  //Pattern2
+  //12
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,1,1,1);
+  expect(capt.generate()).toEqual('One+1');
+  });
+  //13
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,1,2,2);
+  expect(capt.generate()).toEqual('Two+2');
+  });
+  //14
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,1,3,5);
+  expect(capt.generate()).toEqual('Three+5');
+  });
+  //15
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,1,4,2);
+  expect(capt.generate()).toEqual('Four+2');
+  });
+  //16
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,2,2,2);
+  expect(capt.generate()).toEqual('Two-2');
+  });
+  //17
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,2,4,5);
+  expect(capt.generate()).toEqual('Four-5');
+  });
+  //18
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,2,6,0);
+  expect(capt.generate()).toEqual('Six-0');
+  });
+  //19
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,2,7,0);
+  expect(capt.generate()).toEqual('Seven-0');
+  });
+  //20
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,2,8,9);
+  expect(capt.generate()).toEqual('Eight-9');
+  });
+  //21
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,2,7,3);
+  expect(capt.generate()).toEqual('Seven-3');
+  });
+  //22
+  it('Pattern2',function(){
+  var capt = new Captcha(pat2,2,9,0);
+  expect(capt.generate()).toEqual('Nine-0');
+  });
 });
