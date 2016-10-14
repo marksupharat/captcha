@@ -9,14 +9,10 @@ function Operater(operater){
   }
 }
 
-function LeftOperand(pattern,lo){
+function changeOperand(lo){
   let message='';
   this.toString=function(){
-    if (pattern===1) {
-       return lo;
-    }
-    else if(pattern===2){
-      if(lo==='0'){
+    if(lo===0){
         message = 'Zero';
       }
       else if(lo===1){
@@ -46,56 +42,24 @@ function LeftOperand(pattern,lo){
       else if(lo===9){
         message = 'Nine';
       }
-      return message;
-    }
-  }
-}
-
-function RightOperand(pattern,ro){
-  let message='';
-  this.toString=function(){
-    if (pattern===1) {
-      if(ro===0){
-        message = 'Zero';
-      }
-      else if(ro===1){
-        message = 'One';
-      }
-      else if(ro===2){
-        message = 'Two';
-      }
-      else if(ro===3){
-        message = 'Three';
-      }
-      else if(ro===4){
-        message = 'Four';
-      }
-      else if(ro===5){
-        message = 'Five';
-      }
-      else if(ro===6){
-        message = 'Six';
-      }
-      else if(ro===7){
-        message = 'Seven';
-      }
-      else if(ro===8){
-        message = 'Eight';
-      }
-      else if(ro===9){
-        message = 'Nine';
-      }
-     return message;
-    }
-    else if(pattern===2){
-      return ro;
-    }
+    return message;
   }
 }
 
 function Captcha(pattern,operater,leftoperand,rightoperand){
   this.generate = function(){
-    return new LeftOperand(pattern,leftoperand)+new Operater(operater)+new RightOperand(pattern,rightoperand);
+    let L = '';
+    let R = '';
+    if (pattern===1){
+      L = leftoperand;
+      R = new changeOperand(rightoperand);
+    }
+    else   if (pattern===2){
+      L = new changeOperand(leftoperand);
+      R = rightoperand;
+    }
+    let O = new Operater(operater);
+    return L+O+R;
   }
 }
 
